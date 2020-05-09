@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecom/models/products.dart';
 import './screens/homepage.dart';
+import 'package:provider/provider.dart';
 void main() {
   runApp(MyApp());
 }
@@ -7,13 +9,20 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter E-commerce App',
-      theme: ThemeData(
-        primaryColor: Colors.teal,
-        accentColor: Colors.white
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(
+          value: Products(),
+        )
+      ],
+          child: MaterialApp(
+        title: 'Flutter E-commerce App',
+        theme: ThemeData(
+          primaryColor: Colors.teal,
+          accentColor: Colors.white
+        ),
+        home: HomePage(),
       ),
-      home: HomePage(),
     );
   }
 }
