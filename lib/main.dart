@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecom/models/orders.dart';
 import 'package:flutter_ecom/models/products.dart';
 import 'package:flutter_ecom/screens/pdt_detail_screen.dart';
 import './screens/homepage.dart';
@@ -23,6 +24,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider.value(
           value: Cart(),
+        ),
+        ChangeNotifierProvider.value(
+          value: Orders(),
         )
       ],
       child: MaterialApp(
@@ -32,7 +36,7 @@ class MyApp extends StatelessWidget {
         home: HomePage(),
         routes: {
           DetailPage.routeName: (ctx) => DetailPage(),
-          CartScreen.routeName: (ctx)=>CartScreen(),
+          CartScreen.routeName: (ctx) => CartScreen(),
         },
       ),
     );

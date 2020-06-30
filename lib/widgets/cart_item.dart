@@ -19,7 +19,7 @@ class CartPdt extends StatelessWidget {
         color: Colors.red,
       ),
       onDismissed: (direction) {
-        Provider.of<Cart>(context).removeItem(productId);
+        Provider.of<Cart>(context, listen: false).removeItem(productId);
       },
       child: Card(
         child: ListTile(
